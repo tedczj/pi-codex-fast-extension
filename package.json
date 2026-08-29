@@ -1,0 +1,46 @@
+{
+	"name": "pi-codex-fast-extension",
+	"version": "0.1.0",
+	"description": "Enable OpenAI Codex priority processing in Pi",
+	"type": "module",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/tedczj/pi-codex-fast-extension.git"
+	},
+	"keywords": [
+		"pi-package",
+		"pi-extension",
+		"openai",
+		"codex",
+		"priority-processing"
+	],
+	"files": [
+		"src",
+		"README.md",
+		"LICENSE"
+	],
+	"pi": {
+		"extensions": [
+			"./src/index.ts"
+		]
+	},
+	"scripts": {
+		"check": "tsc --noEmit && biome check src test package.json tsconfig.json",
+		"test": "vitest --run",
+		"test:watch": "vitest"
+	},
+	"peerDependencies": {
+		"@earendil-works/pi-coding-agent": "*"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.5",
+		"@earendil-works/pi-coding-agent": "0.84.2",
+		"@types/node": "24.12.4",
+		"typescript": "5.9.3",
+		"vitest": "4.1.9"
+	},
+	"engines": {
+		"node": ">=22.19.0"
+	}
+}
