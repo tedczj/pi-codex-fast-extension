@@ -38,7 +38,7 @@ Pi packages execute with your full user permissions. Review extension source bef
 
 Fast mode defaults to **off** for a project's first session. Use `/fast` to toggle it on or off:
 
-The footer always displays `fast: off` or `⚡ fast: on`. The selected state is stored in the current session and restored when that session is resumed. A session created with `/new` inherits the previous session's state; it can then be changed independently.
+When enabled, the footer shows `fast` immediately to the right of the reasoning effort (for example, `gpt-5.6-sol • high • fast`) without adding a separate status line. When disabled, the `fast` label is absent. The selected state is stored in the current session and restored when that session is resumed. A session created with `/new` inherits the previous session's state; it can then be changed independently.
 
 When enabled with an OpenAI Codex model, every provider request gets:
 
