@@ -1,8 +1,8 @@
 # Pi Codex Fast Extension
 
-Enable OpenAI Codex priority processing in [Pi](https://github.com/earendil-works/pi) with one small extension.
+Enable session-scoped OpenAI Codex priority processing in [Pi](https://github.com/earendil-works/pi) with one small extension.
 
-The extension adds `service_tier: "priority"` to provider requests whenever the active Pi model uses the `openai-codex` provider. Requests for every other provider are left unchanged.
+When fast mode is enabled, the extension adds `service_tier: "priority"` to provider requests whenever the active Pi model uses the `openai-codex` provider. Requests for every other provider are left unchanged.
 
 ## Requirements
 
@@ -36,13 +36,11 @@ Pi packages execute with your full user permissions. Review extension source bef
 
 ## Usage
 
-No command or configuration is required. Start Pi with an OpenAI Codex model after installing the package:
+Fast mode defaults to **off** for a project's first session. Use `/fast` to toggle it on or off:
 
-```bash
-pi --provider openai-codex
-```
+The footer always displays `fast: off` or `⚡ fast: on`. The selected state is stored in the current session and restored when that session is resumed. A session created with `/new` inherits the previous session's state; it can then be changed independently.
 
-The extension runs for every provider request in that session and returns a new payload with:
+When enabled with an OpenAI Codex model, every provider request gets:
 
 ```json
 {
@@ -50,7 +48,7 @@ The extension runs for every provider request in that session and returns a new 
 }
 ```
 
-It does not mutate the original payload and does not affect providers such as `openai`, `anthropic`, or `google`.
+The extension does not mutate the original payload and does not affect providers such as `openai`, `anthropic`, or `google`.
 
 ## Development
 
